@@ -11,7 +11,7 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
 });
 
 $router->group(['middleware' => 'auth', 'prefix' => 'api/v1'], function ($router){
-    $router->post('/logout', 'AuthController@logout');
+    $router->get('/logout', 'AuthController@logout');
 });
 
 $router->group(['middleware' => 'auth', 'prefix' => 'api/v1/weather'], function ($router){

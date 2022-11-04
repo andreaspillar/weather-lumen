@@ -60,7 +60,7 @@ class AuthController extends Controller
         return $this->respondWithToken($token, $id_user, 22);
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         auth()->logout(true);
         return response()->json(['status' => 'logout'], 200);
