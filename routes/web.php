@@ -8,11 +8,11 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api/v1'], function () use ($router) {
     $router->post('/register', 'AuthController@registerUser');
     $router->post('/login', 'AuthController@login');
-    $router->get('/logout', 'AuthController@logout');
 });
 
-// $router->group(['middleware' => 'auth', 'prefix' => 'api/v1/auth'], function ($router){
-// });
+$router->group(['middleware' => 'auth', 'prefix' => 'api/v1/auth'], function ($router){
+    $router->get('/logout', 'AuthController@logout');
+});
 
 $router->group(['middleware' => 'auth', 'prefix' => 'api/v1/weather'], function ($router){
     $router->post('/add', 'WeatherController@add');
