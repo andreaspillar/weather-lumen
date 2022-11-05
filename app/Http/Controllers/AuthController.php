@@ -60,6 +60,11 @@ class AuthController extends Controller
         return $this->respondWithToken($token, $id_user, 22);
     }
 
+    public function me()
+    {
+        return response()->json(auth()->user());
+    }
+
     public function logout()
     {
         Auth::logout();

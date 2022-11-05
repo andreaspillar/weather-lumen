@@ -12,6 +12,7 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
 
 $router->group(['middleware' => 'auth', 'prefix' => 'api/v1/auth'], function ($router){
     $router->get('/logout', 'AuthController@logout');
+    $router->get('/me', 'AuthController@me');
 });
 
 $router->group(['middleware' => 'auth', 'prefix' => 'api/v1/weather'], function ($router){
